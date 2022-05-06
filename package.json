@@ -1,0 +1,18 @@
+{
+  "name": "cliente_servidor",
+  "version": "1.0.0",
+  "description": "Practica 4 de la semana 5 Backend JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Espinoza",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.18.1",
+    "prisma": "^3.13.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.13.0"
+  }
+}
