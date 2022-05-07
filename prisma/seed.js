@@ -43,7 +43,47 @@ const prisma = new PrismaClient();
       },
     });
 
-    console.log('Create 3 explorers');
+    const commander = await prisma.missionCommander.upsert({
+      where: { name: 'Carlo' },
+      update: {},
+      create: {
+        name: 'Carlo',
+				username: 'carlogilmar',
+				mainStack: 'Elixir'
+      },
+    });
+
+    const commander1 = await prisma.missionCommander.upsert({
+      where: { name: 'Rodrigo' },
+      update: {},
+      create: {
+        name: 'Rodrigo',
+				username: 'romarpla',
+				mainStack: 'JS'
+      },
+    });
+
+    const commander2 = await prisma.missionCommander.upsert({
+      where: { name: 'Fer' },
+      update: {},
+      create: {
+        name: 'Fer',
+				username: 'ferzha',
+				mainStack: 'Java'
+      },
+    });
+
+    const commander3 = await prisma.missionCommander.upsert({
+      where: { name: 'Tulio' },
+      update: {},
+      create: {
+        name: 'Tulio',
+				username: 'tulancingo',
+				mainStack: 'Ruby'
+      },
+    });
+
+    console.log('Create 3 explorers and 3 mission commanders');
   } catch(e) {
     console.error(e);
     process.exit(1);
