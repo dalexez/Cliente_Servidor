@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.json({message: 'alive'});
 });
 
-//INICIO DE CRUD
+//INICIO DE CRUD ECPLORER
 //Este comentario solo lo usare para encontrar mas facilmente donde inicia el CRUD al pasar el Lint lo quitare
 
 app.get('/explorers', async (req, res) => {
@@ -67,6 +67,20 @@ app.delete('/explorers/:id', async (req, res) => {
 });
 
 //FINAL DEL CRUD
+
+//INICIO CRUD MISSIONCOMMANDER
+app.get('/missioncommander', async (req, res) => {
+  const allMissionCommanders =  await prisma.explorer.findMany({});
+  res.json(allMissionCommanders);
+});
+
+app.get('/mission/:id', async (req, res) => {
+const id = req.params.id;
+const missionCommander = await prisma.explorer.findUnique({where: {id: parseInt(id)}});
+res.json(missionCommander);
+});
+
+//FINAL CRUD 
 
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
