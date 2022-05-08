@@ -95,16 +95,22 @@ app.post('/missioncommander', async (req, res) => {
 app.put('/missioncommander/:id', async (req, res) => {
 	const id = parseInt(req.params.id);
 
-	await prisma.explorer.update({
+	await prisma.missionCommander.update({
 		where: {
 			id: id
 		},
 		data: {
-			mission: req.body.mainStack
+			mainStack: req.body.mainStack
 		}
 	})
 
 	return res.json({message: "Actualizado correctamente"});
+});
+
+app.delete('/missioncommander/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+	await prisma.missionCommander.delete({where: {id: id}});
+	return res.json({message: "Eliminado correctamente"});
 });
 
 //FINAL CRUD 
