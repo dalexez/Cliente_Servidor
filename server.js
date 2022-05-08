@@ -92,6 +92,21 @@ app.post('/missioncommander', async (req, res) => {
   return res.json({message});
 });
 
+app.put('/missioncommander/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+
+	await prisma.explorer.update({
+		where: {
+			id: id
+		},
+		data: {
+			mission: req.body.mainStack
+		}
+	})
+
+	return res.json({message: "Actualizado correctamente"});
+});
+
 //FINAL CRUD 
 
 app.listen(port, () => {
